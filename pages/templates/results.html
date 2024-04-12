@@ -11,11 +11,12 @@
                     Error: {{ errorMessage }}
                 </div>
             {% else %}
-                <p><strong>Clump Thickness:</strong> {{ clump_thickness }}</p>
-                <p><strong>Bland Chromatin:</strong> {{ bland_chromatin }}</p>
-                <p><strong>Marginal Adhesion:</strong> {{ marginal_adhesion }}</p>
+                <p><strong>Uniformity of Cell Size:</strong> {{ uniformity_of_cell_size }}</p>
+                <p><strong>Uniformity of Cell Shape:</strong> {{ uniformity_of_cell_shape }}</p>
                 <p><strong>Bare Nuclei:</strong> {{ bare_nuclei }}</p>
-                <p><strong>Single Epithelial Cell Size:</strong> {{ single_epithelial_cell_size }}</p>
+                <p><strong>Bland Chromatin:</strong> {{ bland_chromatin }}</p>
+                <p><strong>Normal Nucleoli:</strong> {{ normal_nucleoli }}</p>
+                <p><strong>Clump Thickness:</strong> {{ clump_thickness }}</p>
                 <h2><strong>Prediction:</strong> {{ prediction }}</h2>
             {% endif %}
         </div>

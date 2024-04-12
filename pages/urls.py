@@ -6,6 +6,6 @@ urlpatterns = [
     path('', homePageView, name='home'),
     path('homePost/', homePost, name='homePost'),
     path(
-        'results/<int:clump_thickness>/<int:bland_chromatin>/<int:marginal_adhesion>/<int:bare_nuclei>/<int:single_epithelial_cell_size>/',
-        results, name='results'),
+        'results/<int:uniformity_of_cell_size>/<int:uniformity_of_cell_shape>/<int:bare_nuclei>/<int:bland_chromatin>/'
+        '<int:normal_nucleoli>/<int:clump_thickness>/', results, name='results'),
 ]

@@ -5,52 +5,58 @@
   <h1>Home Page</h1>
  <h3>COMP4949 Assignment 2 by Amir Eskandari</h3>
  <p> This application uses a logistic regression model to predict the likelihood of a patient having breast cancer based on input data.</p>
- <p> To test this out, please input a positive integer.</p>
+ <p> To test this out, please input a positive integer for each of the features below.</p>
 
   <!-- This form references the homePost route. -->
   <form action="{% url 'homePost' %}" method="post" novalidate>
     {% csrf_token %}
 
-    <!-- Input field for Clump Thickness with Bootstrap and HTML5 validation -->
+    <!-- Input fields for the new variables with Bootstrap and HTML5 validation -->
     <div class="input-group mb-3 has-validation">
-      <span class="input-group-text">Clump Thickness</span>
-      <input type="number" name="clump_thickness" class="form-control" min="0" required aria-describedby="clumpThicknessHelp" placeholder="Enter a positive integer">
+      <span class="input-group-text">Uniformity of Cell Size</span>
+      <input type="number" name="uniformity_of_cell_size" class="form-control" min="1" required placeholder="Enter a positive integer">
       <div class="invalid-feedback">
-        Please provide a valid clump thickness (positive integer only).
+        Please provide a valid uniformity of cell size (positive integer only).
       </div>
     </div>
 
-    <!-- Repeat for other fields with specific help and validation messages -->
+    <div class="input-group mb-3 has-validation">
+      <span class="input-group-text">Uniformity of Cell Shape</span>
+      <input type="number" name="uniformity_of_cell_shape" class="form-control" min="1" required placeholder="Enter a positive integer">
+      <div class="invalid-feedback">
+        Please provide a valid uniformity of cell shape (positive integer only).
+      </div>
+    </div>
+
+    <div class="input-group mb-3 has-validation">
+      <span class="input-group-text">Bare Nuclei</span>
+      <input type="number" name="bare_nuclei" class="form-control" min="1" required placeholder="Enter a positive integer">
+      <div class="invalid-feedback">
+        Please provide a valid bare nuclei value (positive integer only).
+      </div>
+    </div>
+
     <div class="input-group mb-3 has-validation">
       <span class="input-group-text">Bland Chromatin</span>
-      <input type="number" name="bland_chromatin" class="form-control" min="0" required placeholder="Enter a positive integer">
+      <input type="number" name="bland_chromatin" class="form-control" min="1" required placeholder="Enter a positive integer">
       <div class="invalid-feedback">
         Please provide a valid bland chromatin value (positive integer only).
       </div>
     </div>
 
     <div class="input-group mb-3 has-validation">
-      <span class="input-group-text">Marginal Adhesion</span>
-      <input type="number" name="marginal_adhesion" class="form-control" min="0" required placeholder="Enter a positive integer">
+      <span class="input-group-text">Normal Nucleoli</span>
+      <input type="number" name="normal_nucleoli" class="form-control" min="1" required placeholder="Enter a positive integer">
       <div class="invalid-feedback">
-        Please provide a valid marginal adhesion value (positive integer only).
+        Please provide a valid normal nucleoli value (positive integer only).
       </div>
     </div>
 
     <div class="input-group mb-3 has-validation">
-      <span class="input-group-text">Bare Nuclei</span>
-      <input type="number" name="bare_nuclei" class="form-control" min="1" required placeholder="Enter a positive integer greater than zero">
+      <span class="input-group-text">Clump Thickness</span>
+      <input type="number" name="clump_thickness" class="form-control" min="1" required placeholder="Enter a positive integer">
       <div class="invalid-feedback">
-        Bare Nuclei must be greater than zero. Zero or negative values are not allowed.
-      </div>
-    </div>
-
-
-    <div class="input-group mb-3 has-validation">
-      <span class="input-group-text">Single Epithelial Cell Size</span>
-      <input type="number" name="single_epithelial_cell_size" class="form-control" min="0" required placeholder="Enter a positive integer">
-      <div class="invalid-feedback">
-        Please provide a valid single epithelial cell size value (positive integer only).
+        Please provide a valid clump thickness value (positive integer only).
       </div>
     </div>
 
@@ -67,13 +73,12 @@
     </div>
   {% endif %}
 
-{% if messages %}
+  {% if messages %}
     {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
             {{ message }}
         </div>
     {% endfor %}
-{% endif %}
-
+  {% endif %}
 
 {% endblock content %}
